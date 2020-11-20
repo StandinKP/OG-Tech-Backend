@@ -7,11 +7,11 @@ import razorpay
 from flask_pymongo import PyMongo
 import pymongo
 import random 
-#from flask_mail import Message 
-#from flask_mail import Mail
+from flask_mail import Message 
+from flask_mail import Mail
 import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+#from sendgrid import SendGridAPIClient
+#from sendgrid.helpers.mail import Mail
 import re 
 
 import pdfkit
@@ -101,7 +101,7 @@ def signup():
 
         if user["password"].isalpha():
             flash('The password must contain atleast one numeric character .' , "warning")
-            return(render_template("signup.html"))
+            return(render_template("signup.html",user=user))
 
         if(re.search(pattern,user["password"]) == None):
             flash("The passwotd must contain atleast one special character" , "warning")
@@ -169,7 +169,6 @@ def login():
                 session['contact'] = user['contact']
                 if request.form.get("remember") == "on":
                     session.permanent = True 
-                print(session.permanent)
                 return(redirect(url_for("dashboard")))
             else:
                 flash("Incorrect Password , please try again ." , "danger")
