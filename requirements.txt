@@ -1,0 +1,8 @@
+flask
+flask_bcrypt
+razorpay
+flask-pymongo
+sendgrid
+pdfkit
+pymongo
+python-dotenv
