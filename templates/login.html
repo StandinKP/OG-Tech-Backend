@@ -1,73 +1,106 @@
-{% extends 'base.html' %} 
-{%block css%}
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+{% extends 'base.html' %} {%block css%}
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
 
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/signup.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
-{%endblock%}
-{% block body%} 
+<link rel="stylesheet" type="text/css" href="/static/css/signup.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/util.css" />
+{%endblock%} {% block body%}
 <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url(/static/css/image.png);">
-                <span class="login100-form-title-1">
-                    Log In
-                </span>
-            </div>
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image: url(/static/css/image.png)">
+        <span class="login100-form-title-1"> Log In </span>
+      </div>
 
-            <form class="login100-form validate-form" action="{{ url_for('login')}}" name="login_form" method = "POST" autocomplete="off">
-                
-              <div class="mb-3 md-form" style="width: 100%;">
-                <label for="materialFormCardNameEx" class="form-label font-weight-light">Email address</label>
-                <input type="email" name = "lemail" class="form-control" id="materialFormCardNameEx" aria-describedby="emailHelp"> 
-              </div>
-              <div class="mb-3 md-form" style="width: 100%;">
-                <label for="materialFormCardPasswordEx" class="form-label">Password</label>
-                <input type="password" name = "lpassword" class="form-control" id="materialFormCardPasswordEx">
-              </div>
-              <div class="alert alert-danger" id = "lerror" style="display: none;" role="alert">
-                
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="remember" class="form-check-input" id="materialChecked2" >
-                <label class="form-check-label" for="materialChecked2">Remember me</label>
-              </div>
-              <p><a href = "#" data-toggle="modal" data-target="#exampleModal">Forgot your password ? </a></p>
-              <div class="text-center py-4 mt-3">
-              <button type="submit"  class="btn btn-primary btn btn-cyan" value = "Login">Login</button>
-            </div>
-         
-            {% include 'includes/_messages.html' %}
-
-            
-            </form>
-            
-           
-
-            <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Please Enter your Email Id</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form name="forgot4_form" action="{{url_for('forgot')}}" method = "POST" autocomplete="off">
-                      <div class="mb-3  md-form">
-                        <label for="lexampleInputEmail1" class="form-label font-weight-light">Email address</label>
-                        <input type="email" name = "forgotemail" class="form-control" id="lexampleInputEmail1" aria-describedby="emailHelp">
-                      </div>
-                          <button type="submit" class="btn btn-cyan" >Send Verification link</button>
-                    </form>
-                  </div>
-        
-                </div>
-              </div>
-            </div>
+      <form
+        class="login100-form validate-form"
+        action="{{ url_for('login')}}"
+        name="login_form"
+        method="POST"
+        autocomplete="off"
+      >
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="materialFormCardNameEx" class="form-label font-weight-light"
+            >Email address</label
+          >
+          <input
+            type="email"
+            name="lemail"
+            class="form-control"
+            id="materialFormCardNameEx"
+            aria-describedby="emailHelp"
+          />
         </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="materialFormCardPasswordEx" class="form-label">Password</label>
+          <input
+            type="password"
+            name="lpassword"
+            class="form-control"
+            id="materialFormCardPasswordEx"
+          />
+        </div>
+        <div class="alert alert-danger" id="lerror" style="display: none" role="alert"></div>
+        <div class="form-check">
+          <input type="checkbox" name="remember" class="form-check-input" id="materialChecked2" />
+          <label class="form-check-label" for="materialChecked2">Remember me</label>
+        </div>
+        <p>
+          <a href="#" data-toggle="modal" data-target="#exampleModal">Forgot your password ? </a>
+        </p>
+        <div class="text-center py-4 mt-3">
+          <button type="submit" class="btn btn-primary btn btn-cyan" value="Login">Login</button>
+        </div>
+
+        {% include 'includes/_messages.html' %}
+      </form>
+
+      <div
+        class="modal"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Please Enter your Email Id</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form
+                name="forgot4_form"
+                action="{{url_for('forgot')}}"
+                method="POST"
+                autocomplete="off"
+              >
+                <div class="mb-3 md-form">
+                  <label for="lexampleInputEmail1" class="form-label font-weight-light"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    name="forgotemail"
+                    class="form-control"
+                    id="lexampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <button type="submit" class="btn btn-cyan">Send Verification link</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <!--===============================================================================================-->

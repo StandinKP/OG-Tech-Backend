@@ -1,25 +1,31 @@
-{% extends 'base.html' %}
-
-{% block body %} 
-<div class="container col-6" style="width: 25%;margin-top:150px ;">
-    <div class="card">
-      <div class="card-body">
-    <form name="reset_form" method = "POST">
-      <p class="h4 text-center py-4">Reset Password</p>
+{% extends 'base.html' %} {% block body %}
+<div class="container col-6" style="width: 25%; margin-top: 150px">
+  <div class="card">
+    <div class="card-body">
+      <form name="reset_form" method="POST">
+        <p class="h4 text-center py-4">Reset Password</p>
         <div class="mb-3 md-form">
           <label for="rexampleInputPassword1" class="form-label">Enter new password</label>
-          <input type="password" name = "reset_password" class="form-control" id="rexampleInputPassword1">
+          <input
+            type="password"
+            name="reset_password"
+            class="form-control"
+            id="rexampleInputPassword1"
+          />
         </div>
-        <div class="mb-3  md-form">
+        <div class="mb-3 md-form">
           <label for="rcexampleInputPassword1" class="form-label">Confirm Password</label>
-          <input type="password" name = "reset_confirm_password" class="form-control" id="rcexampleInputPassword1">
+          <input
+            type="password"
+            name="reset_confirm_password"
+            class="form-control"
+            id="rcexampleInputPassword1"
+          />
         </div>
-        <div class="alert alert-danger" id = "rerror" style="display: none;" role="alert">
-          
-        </div>
-        <button type="submit"  class="btn btn-cyan" value = "Reset Password">Reset Password</button>
+        <div class="alert alert-danger" id="rerror" style="display: none" role="alert"></div>
+        <button type="submit" class="btn btn-cyan" value="Reset Password">Reset Password</button>
       </form>
-    </div> 
+    </div>
   </div>
 </div>
 

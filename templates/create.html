@@ -1,395 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Digital Visiting Cards</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Digital Visiting Cards</title>
 
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="../static/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/colors.min.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+    <!-- Global stylesheets -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="../static/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/components.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/colors.min.css" rel="stylesheet" type="text/css" />
+    <!-- /global stylesheets -->
 
-	<!-- Core JS files -->
-	
-</head>
+    <!-- Core JS files -->
+  </head>
 
-<body class="navbar-top">
+  <body class="navbar-top">
+    <!-- Main navbar -->
+    <div class="navbar navbar-expand-md navbar-dark fixed-top">
+      <div class="navbar-brand">
+        <a href="https://ogtech.in/" target="_blank" class="d-inline-block">
+          <img src="../static/images/logo_demo.png" alt="" /><span class="headtech">Tech</span>
+        </a>
+      </div>
 
-	<!-- Main navbar -->
-	<div class="navbar navbar-expand-md navbar-dark fixed-top">
-		<div class="navbar-brand">
-			<a href="https://ogtech.in/"  target = "_blank" class="d-inline-block" >
-				<img src="../static/images/logo_demo.png" alt=""><span class="headtech">Tech</span>
-			</a>
-			
-		</div>
+      <div class="d-md-none">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-mobile"
+        >
+          <i class="icon-tree5"></i>
+        </button>
+      </div>
 
-		<div class="d-md-none">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
-				<i class="icon-tree5"></i>
-			</button>
-		</div>
+      <div class="collapse navbar-collapse" id="navbar-mobile">
+        <ul class="navbar-nav" style="display: flex; align-items: flex-end">
+          <li class="nav-item dropdown dropdown-user">
+            <a
+              href="#"
+              class="navbar-nav-link d-flex align-items-center dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <img
+                src="..\static\images\demo\users\face11.jpg"
+                class="rounded-circle mr-2"
+                height="34"
+                alt=""
+              />
+              <span>{{ session['name']}}</span>
+            </a>
 
-		<div class="collapse navbar-collapse" id="navbar-mobile">
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+              <a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+              <a href="/logout/" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- /main navbar -->
 
-			
+    <!-- Page content -->
+    <div class="page-content">
+      <!-- Main sidebar -->
+      <div class="sidebar sidebar-dark sidebar-main sidebar-fixed sidebar-expand-md">
+        <!-- Sidebar mobile toggler -->
+        <div class="sidebar-mobile-toggler text-center">
+          <a href="#" class="sidebar-mobile-main-toggle">
+            <i class="icon-arrow-left8"></i>
+          </a>
+          Navigation
+          <a href="#" class="sidebar-mobile-expand">
+            <i class="icon-screen-full"></i>
+            <i class="icon-screen-normal"></i>
+          </a>
+        </div>
+        <!-- /sidebar mobile toggler -->
 
-			<ul class="navbar-nav" style = " display:flex; align-items: flex-end; ">
-
-				<li class="nav-item dropdown dropdown-user" >
-					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-						<img src="..\static\images\demo\users\face11.jpg" class="rounded-circle mr-2" height="34" alt="">
-						<span>{{ session['name']}}</span>
-					</a>
-
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="/logout/" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!-- /main navbar -->
-
-
-	<!-- Page content -->
-	<div class="page-content">
-
-		<!-- Main sidebar -->
-		<div class="sidebar sidebar-dark sidebar-main sidebar-fixed sidebar-expand-md" >
-
-			<!-- Sidebar mobile toggler -->
-			<div class="sidebar-mobile-toggler text-center">
-				<a href="#" class="sidebar-mobile-main-toggle">
-					<i class="icon-arrow-left8"></i>
-				</a>
-				Navigation
-				<a href="#" class="sidebar-mobile-expand">
-					<i class="icon-screen-full"></i>
-					<i class="icon-screen-normal"></i>
-				</a>
-			</div>
-			<!-- /sidebar mobile toggler -->
-
-
-			<!-- Sidebar content -->
-			<div class="sidebar-content">
-
-				<!-- User menu -->
-				<div class="sidebar-user">
-					<div class="card-body">
-						<div class="media">
-							<div class="mr-3">
-								<a href="#"><img src="..\static\images\demo\users\face11.jpg" width="38" height="38" class="rounded-circle" alt=""></a>
-							</div>
-
-							<div class="media-body">
-								<div class="media-title font-weight-semibold">{{session['name']}}</div>
-								<div class="font-size-xs opacity-50">
-									<i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA
-								</div>
-							</div>
-
-							
-						</div>
-					</div>
-				</div>
-				<!-- /user menu -->
-
-
-				<!-- Main navigation -->
-				<div class="card card-sidebar-mobile">
-					<ul class="nav nav-sidebar" id="accordion" data-nav-type="accordion">
-
-						<!-- Main -->
-						
-						<li class="nav-item">
-							<a href="index.html" class="nav-link">
-								<i class="icon-home4"></i>
-								<span>
-									Create
-									<span class="d-block font-weight-normal opacity-50">No active orders</span>
-								</span>
-							</a>
-						</li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-stack"></i> <span>Cards</span></a>
-
-							<ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-                                <li class="nav-item"><a href="/create" class="nav-link"><i class="icon-plus3"></i> <span>Create a new one</span></a></li>
-                                <li class="nav-item"><a href="/create" class="nav-link"><i class="icon-eye"></i> <span>View Cards</span></a></li>
-								
-					
-							</ul>
-						</li>
-				
-						
-						<!-- /main -->
-
-						<!-- Forms -->
-						
-						<!-- /page kits -->
-
-					</ul>
-					
-				</div>
-				<!-- /main navigation -->
-
-			</div>
-			<!-- /sidebar content -->
-			
-		</div>
-		<!-- /main sidebar -->
-
-
-		<!-- Main content -->
-		<div class="content-wrapper">
-
-			<!-- Page header -->
-			<div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
-                <div class="d-flex">
-                    <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"></a>
-                        
-                    </div>
-
-                    
+        <!-- Sidebar content -->
+        <div class="sidebar-content">
+          <!-- User menu -->
+          <div class="sidebar-user">
+            <div class="card-body">
+              <div class="media">
+                <div class="mr-3">
+                  <a href="#"
+                    ><img
+                      src="..\static\images\demo\users\face11.jpg"
+                      width="38"
+                      height="38"
+                      class="rounded-circle"
+                      alt=""
+                  /></a>
                 </div>
 
-            
+                <div class="media-body">
+                  <div class="media-title font-weight-semibold">{{session['name']}}</div>
+                  <div class="font-size-xs opacity-50">
+                    <i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA
+                  </div>
+                </div>
+              </div>
             </div>
-			<!-- /page header -->
+          </div>
+          <!-- /user menu -->
 
+          <!-- Main navigation -->
+          <div class="card card-sidebar-mobile">
+            <ul class="nav nav-sidebar" id="accordion" data-nav-type="accordion">
+              <!-- Main -->
 
-			<!-- Content area -->
-			<div class="content">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <i class="icon-home4"></i>
+                  <span>
+                    Create
+                    <span class="d-block font-weight-normal opacity-50">No active orders</span>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item nav-item-submenu">
+                <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Cards</span></a>
 
-				<!-- Main charts -->
-				<div class="row">
+                <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
+                  <li class="nav-item">
+                    <a href="/create" class="nav-link"
+                      ><i class="icon-plus3"></i> <span>Create a new one</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a href="/create" class="nav-link"
+                      ><i class="icon-eye"></i> <span>View Cards</span></a
+                    >
+                  </li>
+                </ul>
+              </li>
 
-					<div class="col-xl-8">
+              <!-- /main -->
 
-						<!-- Sales stats -->
-						<div class="card">
-							<div class="card-header header-elements-inline">
-								<h4><span class="font-weight-semibold">Create</span> - Templates </h4>
-								
-                            </div>
-                            <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
-                                <div class="d-flex">
-                                    <div class="breadcrumb">
-                                        <a href="index.html" class="breadcrumb-item"></a>
-                                        
-                                    </div>
-            
-                                    
-                                </div>
-            
-                            
-                            </div>
+              <!-- Forms -->
 
-							<div class="card-body py-0">
-                                <div class="row" >
-                                    <div class="image_template col-sm" style = "width : 40% ; height:50% ; padding:25px ;  text-align: center; border: 2px solid grey;" >
-                                        <img src = "/static/images/Cards/New folder/card6.png" style = "width: auto; height :30rem" >
-                                        <button type="button" class="btn btn-outline-secondary select" style="margin-top:30px ; align-self:center ; ">Select</button>
+              <!-- /page kits -->
+            </ul>
+          </div>
+          <!-- /main navigation -->
+        </div>
+        <!-- /sidebar content -->
+      </div>
+      <!-- /main sidebar -->
 
-                                    </div>
-                                    <div class="image_template col-sm" style = "width : 40% ; height:50% ; padding:25px ;  text-align: center; border: 2px solid grey;" >
-                                        <img src = "/static/images/Cards/New folder/card6.png" style = "width: auto; height :30rem" >
-                                        <button type="button" class="btn btn-outline-secondary select" style="margin-top:30px ; align-self:center ; ">Select</button>
+      <!-- Main content -->
+      <div class="content-wrapper">
+        <!-- Page header -->
+        <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+          <div class="d-flex">
+            <div class="breadcrumb">
+              <a href="index.html" class="breadcrumb-item"></a>
+            </div>
+          </div>
+        </div>
+        <!-- /page header -->
 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="image_template col-sm" style = "width : 40% ; height:50% ; padding:25px ;  text-align: center; border: 2px solid grey;" >
-                                        <img src = "/static/images/Cards/New folder/card6.png" style = "width: auto; height :30rem" >
-                                        <button type="button" class="btn btn-outline-secondary select" style="margin-top:30px ; align-self:center ; ">Select</button>
+        <!-- Content area -->
+        <div class="content">
+          <!-- Main charts -->
+          <div class="row">
+            <div class="col-xl-8">
+              <!-- Sales stats -->
+              <div class="card">
+                <div class="card-header header-elements-inline">
+                  <h4><span class="font-weight-semibold">Create</span> - Templates</h4>
+                </div>
+                <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+                  <div class="d-flex">
+                    <div class="breadcrumb">
+                      <a href="index.html" class="breadcrumb-item"></a>
+                    </div>
+                  </div>
+                </div>
 
-                                    </div>
-                                    <div class="image_template col-sm" style = "width : 40% ; height:50% ; padding:25px ;  text-align: center; border: 2px solid grey;" >
-                                        <img src = "/static/images/Cards/New folder/card6.png" style = "width: auto; height :30rem" >
-                                        <button type="button" class="btn btn-outline-secondary select" style="margin-top:30px ; align-self:center ; ">Select</button>
+                <div class="card-body py-0">
+                  <div class="row">
+                    <div
+                      class="image_template col-sm"
+                      style="
+                        width: 40%;
+                        height: 50%;
+                        padding: 25px;
+                        text-align: center;
+                        border: 2px solid grey;
+                      "
+                    >
+                      <img
+                        src="/static/images/Cards/New folder/card6.png"
+                        style="width: auto; height: 30rem"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary select"
+                        style="margin-top: 30px; align-self: center"
+                      >
+                        Select
+                      </button>
+                    </div>
+                    <div
+                      class="image_template col-sm"
+                      style="
+                        width: 40%;
+                        height: 50%;
+                        padding: 25px;
+                        text-align: center;
+                        border: 2px solid grey;
+                      "
+                    >
+                      <img
+                        src="/static/images/Cards/New folder/card6.png"
+                        style="width: auto; height: 30rem"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary select"
+                        style="margin-top: 30px; align-self: center"
+                      >
+                        Select
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div
+                      class="image_template col-sm"
+                      style="
+                        width: 40%;
+                        height: 50%;
+                        padding: 25px;
+                        text-align: center;
+                        border: 2px solid grey;
+                      "
+                    >
+                      <img
+                        src="/static/images/Cards/New folder/card6.png"
+                        style="width: auto; height: 30rem"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary select"
+                        style="margin-top: 30px; align-self: center"
+                      >
+                        Select
+                      </button>
+                    </div>
+                    <div
+                      class="image_template col-sm"
+                      style="
+                        width: 40%;
+                        height: 50%;
+                        padding: 25px;
+                        text-align: center;
+                        border: 2px solid grey;
+                      "
+                    >
+                      <img
+                        src="/static/images/Cards/New folder/card6.png"
+                        style="width: auto; height: 30rem"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary select"
+                        style="margin-top: 30px; align-self: center"
+                      >
+                        Select
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /sales stats -->
+            </div>
+            <div class="col-xl-4">
+              <!-- Available hours -->
+              <div class="card">
+                <div class="card-body">
+                  <!-- Progress counter -->
 
-                                    </div>
-                                </div>
-                            </div> 
-                            
+                  <!-- /progress counter -->
+                  <form
+                    action="{{url_for('create_card')}}"
+                    method="POST"
+                    name="card_info"
+                    id="card_info"
+                    autocomplete="off"
+                  >
+                    <fieldset id="form_field" disabled="disabled">
+                      <div class="form-group">
+                        <label for="template">Template Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="template"
+                          name="template"
+                          aria-describedby="emailHelp"
+                          readonly
+                        />
+                      </div>
+                      <hr />
+                      <div class="form-group">
+                        <label for="name">Name on Card</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          name="email"
+                          id="email"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="contact">Contact</label>
+                        <input type="tel" class="form-control" name="contact" id="contact" />
+                      </div>
+                      <div class="form-group form-check">
+                        <input
+                          type="checkbox"
+                          name="use_existing"
+                          class="form-check-input"
+                          id="use_existing"
+                        />
+                        <label class="form-check-label" for="exampleCheck1"
+                          >Use existing account information</label
+                        >
+                      </div>
+                      <hr />
+                      <div class="form-group">
+                        <label for="profession">Profession</label>
+                        <input
+                          type="text"
+                          name="profession"
+                          class="form-control"
+                          id="profession"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="address">Work Address</label>
+                        <input
+                          type="text"
+                          name="address"
+                          class="form-control"
+                          id="address"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="website-link">Link for your webiste</label>
+                        <input
+                          type="url"
+                          name="website-link"
+                          class="form-control"
+                          id="website-link"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
+                      <input type="submit" class="btn btn-primary" value="Create & Download" />
+                    </fieldset>
+                  </form>
+                  <!-- Bars -->
 
-					
-						</div>
-						<!-- /sales stats -->
+                  <!-- /bars -->
+                </div>
+              </div>
+              <!-- /available hours -->
 
-					</div>
-					<div class="col-xl-4">
-				
+              <!-- Productivity goal -->
 
-						<!-- Available hours -->
-						<div class="card ">
-							<div class="card-body">
+              <!-- /productivity goal -->
+            </div>
+          </div>
+          <!-- /main charts -->
 
-								<!-- Progress counter -->
-								
-								<!-- /progress counter -->
-                                <form action = "{{url_for('create_card')}}" method = "POST" name = "card_info" id = "card_info"autocomplete="off" >
-                                    <fieldset id = "form_field" disabled = "disabled">
-                                    <div class="form-group">
-                                        <label for="template">Template Name</label>
-                                        <input type="text" class="form-control" id="template" name="template" aria-describedby="emailHelp" readonly>
-          
-                                      </div>
-                                      <hr> 
-                                    <div class="form-group">
-                                        <label for="name">Name on Card</label>
-                                        <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-          
-                                      </div>
-                                    <div class="form-group">
-                                      <label for="exampleInputEmail1">Email address</label>
-                                      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-        
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="contact">Contact</label>
-                                      <input type="tel" class="form-control" name="contact" id="contact">
-                                    </div>
-                                    <div class="form-group form-check">
-                                      <input type="checkbox" name="use_existing" class="form-check-input" id="use_existing">
-                                      <label class="form-check-label" for="exampleCheck1">Use existing account information</label>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label for="profession">Profession</label>
-                                        <input type="text" name="profession" class="form-control" id="profession" aria-describedby="emailHelp">
-          
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="address">Work Address</label>
-                                        <input type="text" name="address" class="form-control" id="address" aria-describedby="emailHelp">
-          
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="website-link">Link for your webiste</label>
-                                        <input type="url" name="website-link" class="form-control" id="website-link" aria-describedby="emailHelp">
-          
-                                      </div>
-                                    <input type="submit" class="btn btn-primary" value="Create & Download">
-                                </fieldset>
-                                  </form>
-								<!-- Bars -->
-								
-								<!-- /bars -->
+          <!-- Dashboard content -->
+        </div>
+        <!-- /content area -->
 
-							</div>
-						</div>
-						<!-- /available hours -->
+        <!-- Footer -->
+        <div class="navbar navbar-expand-lg navbar-light">
+          <div class="text-center d-lg-none w-100">
+            <button
+              type="button"
+              class="navbar-toggler dropdown-toggle"
+              data-toggle="collapse"
+              data-target="#navbar-footer"
+            >
+              <i class="icon-unfold mr-2"></i>
+              Footer
+            </button>
+          </div>
 
-					
+          <div class="navbar-collapse collapse" id="navbar-footer">
+            <span class="navbar-text">
+              &copy; 2020 <a href="#">Digital Visiting Cards</a> by
+              <a href="https://www.ogtech.in" target="_blank">OG Tech</a>
+            </span>
 
-					
+            <ul class="navbar-nav ml-lg-auto">
+              <li class="nav-item">
+                <a href="#" class="navbar-nav-link" target="_blank"
+                  ><i class="icon-lifebuoy mr-2"></i>Support</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#" class="navbar-nav-link" target="_blank"
+                  ><i class="icon-file-text2 mr-2"></i>Contact us</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- /footer -->
+      </div>
+      <!-- /main content -->
+    </div>
+    <!-- /page content -->
 
-						<!-- Productivity goal -->
-						
-						<!-- /productivity goal -->
+    <script src="..\static\js\main\jquery.min.js"></script>
+    <script src="..\static\js\main\bootstrap.bundle.min.js"></script>
+    <script src="static\js\plugins\loaders\blockui.min.js"></script>
+    <!-- /core JS files -->
 
-					
-					</div>
-				</div>
-				<!-- /main charts -->
+    <!-- Theme JS files -->
+    <script src="..\static\js\plugins\visualization\d3\d3.min.js"></script>
+    <script src="..\static\js\plugins\visualization\d3\d3_tooltip.js"></script>
+    <script src="..\static\js\plugins\forms\styling\switchery.min.js"></script>
+    <script src="..\static\js\plugins\forms\selects\bootstrap_multiselect.js"></script>
+    <script src="..\static\js\plugins\ui\moment\moment.min.js"></script>
+    <script src="..\static\js\plugins\pickers\daterangepicker.js"></script>
 
+    <script src="..\static\js\app.js"></script>
+    <script src="..\static\js\demo_pages\dashboard.js"></script>
+    <!-- /theme JS files -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-				<!-- Dashboard content -->
-				</div>
-			<!-- /content area -->
+    <script>
+      $(function () {
+        $('#accordion').accordion()
+      })
+      $(document).ready(function () {
+        $('.select').click(function () {
+          $('#form_field').prop('disabled', false)
+        })
 
-
-			<!-- Footer -->
-			<div class="navbar navbar-expand-lg navbar-light">
-				<div class="text-center d-lg-none w-100">
-					<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
-						<i class="icon-unfold mr-2"></i>
-						Footer
-					</button>
-				</div>
-
-				<div class="navbar-collapse collapse" id="navbar-footer">
-					<span class="navbar-text">
-						&copy; 2020 <a href="#">Digital Visiting Cards</a> by <a href="https://www.ogtech.in" target="_blank">OG Tech</a>
-					</span>
-
-					<ul class="navbar-nav ml-lg-auto">
-						<li class="nav-item"><a href="#" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i>Support</a></li>
-						<li class="nav-item"><a href="#" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i>Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- /footer -->
-
-		</div>
-		<!-- /main content -->
-
-	</div>
-	<!-- /page content -->
-	
-	<script src="..\static\js\main\jquery.min.js"></script>
-	<script src="..\static\js\main\bootstrap.bundle.min.js"></script>
-	<script src="static\js\plugins\loaders\blockui.min.js"></script>
-	<!-- /core JS files -->
-
-	<!-- Theme JS files -->
-	<script src="..\static\js\plugins\visualization\d3\d3.min.js"></script>
-	<script src="..\static\js\plugins\visualization\d3\d3_tooltip.js"></script>
-	<script src="..\static\js\plugins\forms\styling\switchery.min.js"></script>
-	<script src="..\static\js\plugins\forms\selects\bootstrap_multiselect.js"></script>
-	<script src="..\static\js\plugins\ui\moment\moment.min.js"></script>
-	<script src="..\static\js\plugins\pickers\daterangepicker.js"></script>
-
-	<script src="..\static\js\app.js"></script>
-	<script src="..\static\js\demo_pages\dashboard.js"></script>
-	<!-- /theme JS files -->
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-	
-	<script>
-		  
-		$( function() {
-		  $( "#accordion" ).accordion();
-		} );
-        $(document).ready(function(){
-			
-			 
-            $(".select").click(function(){
-                
-                $("#form_field").prop("disabled", false);
-        }) ;
-        
-        $('#use_existing').change(function() {
-  if ($(this).is(':checked')) {
-      
-        $("#email").val("{{session['email']}}") ;
-        $("#email").prop("readonly", true);
-        $("#contact").val("{{session['contact']}}") ;
-        $("#contact").prop("readonly", true);
-        $("#name").val("{{session['name']}}") ;
-        $("#name").prop("readonly", true);
-
-    } else {
-        console.log('Unchecked');
-  }
-});;
-        
-         }) ; 
-		</script>
-</body>
+        $('#use_existing').change(function () {
+          if ($(this).is(':checked')) {
+            $('#email').val("{{session['email']}}")
+            $('#email').prop('readonly', true)
+            $('#contact').val("{{session['contact']}}")
+            $('#contact').prop('readonly', true)
+            $('#name').val("{{session['name']}}")
+            $('#name').prop('readonly', true)
+          } else {
+            console.log('Unchecked')
+          }
+        })
+      })
+    </script>
+  </body>
 </html>

@@ -1,53 +1,85 @@
-{% extends 'base.html' %} 
-{%block css%}
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+{% extends 'base.html' %} {%block css%}
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
-	
+
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/signup.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
-{%endblock%}
-{% block body%} 
+<link rel="stylesheet" type="text/css" href="/static/css/signup.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/util.css" />
+{%endblock%} {% block body%}
 <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url(/static/css/image.png);">
-                <span class="login100-form-title-1">
-                    Sign Up 
-                </span>
-            </div>
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image: url(/static/css/image.png)">
+        <span class="login100-form-title-1"> Sign Up </span>
+      </div>
 
-            <form class="login100-form validate-form"  name="signup_form" action = "{{ url_for('signup')}}" method = "POST" autocomplete="off">
-                
-            <div class="mb-3 md-form" style="width: 100%;">
-              <label for="exampleInputEmail1" class="form-label" >Email address</label>
-              <input type="email" name = "email" class="form-control" value="{%if user%}{{user['email']}}{%endif%}" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3 md-form" style="width: 100%;">
-                <label for="exampleName" class="form-label">Full Name</label>
-              <input name = "name" type="text"  value="{%if user%}{{user['name']}}{%endif%}" class="form-control" id="exampleName">
-            </div>
-            <div class="mb-3 md-form" style="width: 100%;">
-                <label for="exampleNumber" class="form-label">Contact no.</label>
-              <input type="tel" name = "contact"  value="{%if user%}{{user['contact']}}{%endif%}" class="form-control" id="exampleNumber">
-            </div>
-            <div class="mb-3 md-form" style="width: 100%;">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" name = "password"  value="{%if user%}{{user['password']}}{%endif%}" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 md-form"  style="width: 100%;">
-              <label for="exampleInputCPassword1" class="form-label">Confirm Password</label>
-              <input type="password" name = "cpassword"  value="{%if user%}{{user['cpassword']}}{%endif%}" class="form-control" id="exampleInputCPassword1">
-            </div>
-         
-            {% include 'includes/_messages.html' %}
-
-            <div class="text-center py-4 mt-3" style="padding-top: -10px;">           
-            <button type="submit"  class="btn btn-cyan" value = "Sign Up">Sign Up</button>
-          </div> 
-            </form>
+      <form
+        class="login100-form validate-form"
+        name="signup_form"
+        action="{{ url_for('signup')}}"
+        method="POST"
+        autocomplete="off"
+      >
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            value="{%if user%}{{user['email']}}{%endif%}"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
         </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleName" class="form-label">Full Name</label>
+          <input
+            name="name"
+            type="text"
+            value="{%if user%}{{user['name']}}{%endif%}"
+            class="form-control"
+            id="exampleName"
+          />
+        </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleNumber" class="form-label">Contact no.</label>
+          <input
+            type="tel"
+            name="contact"
+            value="{%if user%}{{user['contact']}}{%endif%}"
+            class="form-control"
+            id="exampleNumber"
+          />
+        </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            value="{%if user%}{{user['password']}}{%endif%}"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleInputCPassword1" class="form-label">Confirm Password</label>
+          <input
+            type="password"
+            name="cpassword"
+            value="{%if user%}{{user['cpassword']}}{%endif%}"
+            class="form-control"
+            id="exampleInputCPassword1"
+          />
+        </div>
+
+        {% include 'includes/_messages.html' %}
+
+        <div class="text-center py-4 mt-3" style="padding-top: -10px">
+          <button type="submit" class="btn btn-cyan" value="Sign Up">Sign Up</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 
 <!--===============================================================================================-->
