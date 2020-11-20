@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{%block body%} 
+<h1> User home page</h1>
+<h4>Welcome aboard , {{session['name']}}</h4> 
+<form name="payment" action="{{url_for('make_payment')}}" method="POST">
+    <p> Enter your amount </p>
+   <input type = "number" name = "amount">  
+    <input type = "submit" name = "pay" value="Pay Now">
+</form>
+<a href="/logout/">Log out</a>
+{% endblock %}

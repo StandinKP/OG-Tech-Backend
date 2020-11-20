@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{%block body%}
+
+<div class="container" >
+   
+   <h1>Your email address has been verified .</h1> 
+   {% include 'includes/_messages.html' %} 
+   <a href = "{{url_for('login')}"}>Log in</a>
+  </div>
+{% endblock %}
