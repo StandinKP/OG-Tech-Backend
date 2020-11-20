@@ -5,4 +5,5 @@ flask-pymongo
 sendgrid
 pdfkit
 pymongo
+flask_mail
 python-dotenv

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../assets/scss/black-dashboard/custom/mixins/opacity.scss"
+    ],
+    "names": [],
+    "file": "opacity.css"
+}

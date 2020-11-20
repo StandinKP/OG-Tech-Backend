@@ -1,0 +1,43 @@
+<div class="sidebar" data="blue">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+  -->
+    <div class="sidebar-wrapper">
+      <div class="logo text-center">
+
+        <a href="javascript:void(0)" style="pointer-events: none" class="simple-text logo-normal">
+        {{session['name']}}            
+        </a>
+      </div>
+      <ul class="nav">
+        <li class="active ">
+          <a href="{{url_for('dashboard')}}">
+            <i class="tim-icons icon-chart-pie-36"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li >
+          <a href="./icons.html">
+            <i class="tim-icons icon-single-copy-04"></i>
+            <p>Templates</p>
+          </a>
+        </li>
+       
+        
+        <li>
+          <a href="./map.html">
+            <i class="tim-icons icon-badge"></i>
+            <p>My Cards</p>
+          </a>
+        </li>
+        <li>
+          <a href="./user.html">
+            <i class="tim-icons icon-single-02"></i>
+            <p>Profile</p>
+          </a>
+        </li>
+       
+      
+      </ul>
+    </div>
+  </div>

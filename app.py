@@ -88,7 +88,8 @@ def signup():
     pattern = re.compile("[@_!#$%^&*()<>?/\|}{~:]")
     if request.method == "POST":
         user = {
-            "name": request.form.get("name"),
+            "fname": request.form.get("fname"),
+            "lname": request.form.get("lname"),
             "email": request.form.get("email"),
             "contact": request.form.get("contact"),
             "password": request.form.get("password"),
@@ -101,7 +102,7 @@ def signup():
             flash("Email cannot be empty.", "danger")
             return render_template("signup.html", user=user)
 
-        if user["name"] == "":
+        if user["fname"] == "" or user["lname"] == "":
             flash("Name cannot be empty.", "danger")
             return render_template("signup.html", user=user)
 
@@ -219,7 +220,9 @@ def login():
             ):
                 session["logged_in"] = True
                 session["email"] = user["email"]
-                session["name"] = user["name"]
+                #session["fname"] = user["fname"]
+                #session["lname"] = user["lname"]
+                session['name'] = user['name']
                 session["contact"] = user["contact"]
                 if request.form.get("remember") == "on":
                     session.permanent = True
@@ -389,6 +392,9 @@ def create_card():
 def card():
     return render_template("card2.html")
 
+@app.route("/icons" , methods = ["POST" , "GET"])
+def icon():
+    return(render_template("icons.html"))
 
 @app.route("/convert/<card>", methods=["POST", "GET"])
 def convert(card):
