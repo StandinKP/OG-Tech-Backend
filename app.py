@@ -413,6 +413,9 @@ def convert(card):
 
     return response
 
+@app.route("/profile")
+def profile():
+    return(render_template("profile.html"))
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -6,6 +6,10 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../static/assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../static/assets/img/logo.png" />
     <title>Digital Business Cards</title>
+
+    {% block css %}
+    
+    
     <!--     Fonts and icons     -->
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"
@@ -17,8 +21,8 @@
     <!-- CSS Files -->
     <link href="../static/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../static/assets/demo/demo.css" rel="stylesheet" />
     <link rel="stylesheet" href="../static/css/main.css">
+    {% endblock %}
   </head>
   <body class="">
     <div class="wrapper">
@@ -29,7 +33,40 @@
         {% block body %}
         {% endblock %}        
     </div>
+      {% block script %}
+    <script src="../static/assets/js/core/jquery.min.js"></script>
+    <script src="../static/assets/js/core/popper.min.js"></script>
+    <script src="../static/assets/js/core/bootstrap.min.js"></script>
+    <script src="../static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  
+    <!-- Chart JS -->
+    <script src="../static/assets/js/plugins/chartjs.min.js"></script>
+ 
+    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../static/assets/js/black-dashboard.js"></script>
+    <script>
+      $(document).ready(function() {
+        
+    
+        if (!localStorage.getItem("currentActive")) {
+          $(".nav li[data-tab='Dashboard']").addClass('active') ; 
+        }else{
+        $current =  $(".nav li[data-tab='" + localStorage.getItem('currentActive') +"']") ; 
+      
+        $current.addClass("active");
+        $('.nav li').not($current).removeClass('active') ;
+        } 
+      });
+    
 
+        $('.nav li').click(function () {
+        $('.nav li').not(this).removeClass('active') ;
+        $(this).addClass('active') ; 
+        localStorage.setItem('currentActive',$(this).attr("data-tab")) ;  
+        }) ; 
+
+    </script>
+    {% endblock %}
   </body>
   
   </html>

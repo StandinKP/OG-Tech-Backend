@@ -10,28 +10,28 @@
         </a>
       </div>
       <ul class="nav">
-        <li class="active ">
-          <a href="{{url_for('dashboard')}}">
+        <li class="active" data-tab = "Dashboard" >
+          <a  href="{{url_for('dashboard')}}">
             <i class="tim-icons icon-chart-pie-36"></i>
             <p>Dashboard</p>
           </a>
         </li>
-        <li >
-          <a href="./icons.html">
+        <li data-tab = "Templates" >
+          <a href="#">
             <i class="tim-icons icon-single-copy-04"></i>
             <p>Templates</p>
           </a>
         </li>
        
         
-        <li>
-          <a href="./map.html">
+        <li data-tab = "MyCards">
+          <a href="#">
             <i class="tim-icons icon-badge"></i>
             <p>My Cards</p>
           </a>
         </li>
-        <li>
-          <a href="./user.html">
+        <li data-tab = "Profile">
+          <a href="{{url_for('profile')}}">
             <i class="tim-icons icon-single-02"></i>
             <p>Profile</p>
           </a>
