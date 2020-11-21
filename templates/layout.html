@@ -19,7 +19,7 @@
     <!-- Nucleo Icons -->
     <link href="../static/assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="../static/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="../static/assets/css/black-dashboard.css" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="../static/css/main.css">
     {% endblock %}
@@ -45,24 +45,31 @@
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../static/assets/js/black-dashboard.js"></script>
     <script>
+
+
+        
       $(document).ready(function() {
         
     
-        if (!localStorage.getItem("currentActive")) {
+        if (!sessionStorage.getItem("currentActive")) {
           $(".nav li[data-tab='Dashboard']").addClass('active') ; 
         }else{
-        $current =  $(".nav li[data-tab='" + localStorage.getItem('currentActive') +"']") ; 
+        $current =  $(".nav li[data-tab='" + sessionStorage.getItem('currentActive') +"']") ; 
       
         $current.addClass("active");
         $('.nav li').not($current).removeClass('active') ;
         } 
+
+        $("#logout").click(function(){
+          sessionStorage.clear(); 
+        })
       });
     
 
         $('.nav li').click(function () {
         $('.nav li').not(this).removeClass('active') ;
         $(this).addClass('active') ; 
-        localStorage.setItem('currentActive',$(this).attr("data-tab")) ;  
+        sessionStorage.setItem('currentActive',$(this).attr("data-tab")) ;  
         }) ; 
 
     </script>

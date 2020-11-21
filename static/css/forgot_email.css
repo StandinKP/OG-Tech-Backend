@@ -1,0 +1,19 @@
+body {
+    background-color: #1E2228;
+    color: white;
+}
+img {
+    margin-top: 50px;
+    height: 80px;
+}
+
+.container-fluid {
+    width: fit-content;
+}
+.content {
+    background-color: #2d333b;
+}
+
+.btn a {
+    color: black;
+}

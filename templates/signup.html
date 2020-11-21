@@ -32,12 +32,23 @@
           />
         </div>
         <div class="mb-3 md-form" style="width: 100%">
-          <label for="exampleName" class="form-label">Full Name</label>
+          <label for="exampleName" class="form-label">First Name</label>
           <!--DO Fname Lname -->
           <input
-            name="name"
+            name="fname"
             type="text"
-            value="{%if user%}{{user['name']}}{%endif%}"
+            value="{%if user%}{{user['fname']}}{%endif%}"
+            class="form-control"
+            id="exampleName"
+          />
+        </div>
+        <div class="mb-3 md-form" style="width: 100%">
+          <label for="exampleName" class="form-label">Last Name</label>
+          <!--DO Fname Lname -->
+          <input
+            name="lname"
+            type="text"
+            value="{%if user%}{{user['lname']}}{%endif%}"
             class="form-control"
             id="exampleName"
           />

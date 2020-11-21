@@ -14691,7 +14691,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control {
-  border-color: #2b3553;
+  border-color: #222324;  
   border-radius: 0.4285rem;
   font-size: 0.75rem;
   -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -14702,7 +14702,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control:focus {
-  border-color: #e14eca;
+  border-color:#2970F6;
   background-color: transparent;
   box-shadow: none;
 }
@@ -14711,7 +14711,7 @@ fieldset[disabled] .btn-link.active {
 .form-control:focus~.input-group-append .input-group-text,
 .form-control:focus+.input-group-prepend .input-group-text,
 .form-control:focus~.input-group-prepend .input-group-text {
-  border: 1px solid #e14eca;
+  border: 1px solid #2970F6;
   border-left: none;
   background-color: transparent;
 }
@@ -19790,7 +19790,7 @@ Copyright (c) 2015 Daniel Eden
 
 .white-content .card:not(.card-white) {
   background: #ffffff;
-  box-shadow: 0 1px 15px 0 rgba(, , , 0.05);
+  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.05);
 }
 
 .white-content .card:not(.card-white) .card-header {

@@ -150,11 +150,7 @@ def signup():
             mongo.db.users.insert_one(user)
             msg = Message("Confirm email", recipients=[user["email"]])
             link = url_for("verify", token=user["token"], _external=True)
-            msg.html = (
-                """<h1>Confirm your email!</h1>
-                           <a href=" """
-                + link
-                + """ "><button class="btn btn-primary">Verify Email</button></a>"""
+            msg.html = (render_template("verify_account.html" , link = link)
             )
             mail.send(msg)
             # message = Mail(
@@ -220,9 +216,9 @@ def login():
             ):
                 session["logged_in"] = True
                 session["email"] = user["email"]
-                #session["fname"] = user["fname"]
-                #session["lname"] = user["lname"]
-                session['name'] = user['name']
+                session["fname"] = user["fname"]
+                session["lname"] = user["lname"]
+                #session['name'] = user['name']
                 session["contact"] = user["contact"]
                 if request.form.get("remember") == "on":
                     session.permanent = True
@@ -272,12 +268,9 @@ def forgot():
                 token = random.randint(11111, 99999)
                 link = url_for("reset", token=token, _external=True)
                 msg = Message("Change Password", recipients=[user["email"]])
-                msg.html = (
-                    """<h1>Change Your Password!</h1>
-                        <a href=" """
-                    + link
-                    + """ "><button class="btn btn-primary">Click Here to reset password</button></a>"""
+                msg.html = (render_template('forgot_email.html' , token = token , link = link)
                 )
+                
                 mail.send(msg)
                 # sg = SendGridAPIClient(os.getenv("SENDGRID_KEY"))
 
@@ -337,7 +330,6 @@ def reset(token):
             return redirect(url_for("login"))
 
     return render_template("reset.html")
-
 
 @app.route("/make_payment/", methods=["POST", "GET"])
 def make_payment():

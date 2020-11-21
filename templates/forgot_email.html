@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+                    body {
+                        background-color: #1E2228;
+                    }
+                    img {
+                        margin-top: 50px;
+                        height: 80px;
+                    }
+
+                    .container-fluid {
+                        width: fit-content;
+                    }
+                    .content {
+                        background-color: #2d333b;
+                    }
+
+                    .btn a {
+                        color: black;
+                    }
+                    .btn {
+                        display: inline-block;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        color: #212529;
+                        text-align: center;
+                        text-decoration: none;
+                        vertical-align: middle;
+                        cursor: pointer;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        background-color: transparent;
+                        border: 1px solid transparent;
+                        padding: 0.375rem 0.75rem;
+                        font-size: 1rem;
+                        border-radius: 0.25rem;
+                        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+                            border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+                        }
+                    .btn-info {
+                        color: #000;
+                        background-color: #0dcaf0;
+                        border-color: #0dcaf0;
+                    }
+                    
+                        .m-auto {
+                            margin: auto !important;
+                        }
+
+                        .text-center {
+                            text-align: center !important;
+                            }
+                            .align-content-center {
+                            align-content: center !important;
+                            }
+                            .justify-content-center {
+                            justify-content: center !important;
+                            }
+                            .text-white {
+                            color: #fff !important;
+                            }   
+                            .mt-5 {
+                                margin-top: 3rem !important;
+                                }
+                                .p-5 {
+                                padding: 3rem !important;
+                                }
+                                .lh-1 {
+                                line-height: 1 !important;
+                                }
+                                fs-3 {
+                                font-size: calc(1.375rem + 1.5vw) !important;
+                                }
+                                .mb-3 {
+                                margin-top: 3rem !important;
+                                }
+                                .text-decoration-none {
+                                text-decoration: none !important;
+                                }
+                        </style>
+    <title>Forgot Password</title>
+</head>
+<body>
+    <div class="container-fluid m-auto text-center align-content-center justify-content-center text-white">
+        <a href="https://www.ogtech.in" target="_blank"><img src="../static/assets/img/navbar-logo.png" alt=""></a>
+        <div class="content mt-5 p-5">
+            <p class="fs-3 lh-1">Forgot your password? No problem!</p>
+       <p>You can set a new one by clicking the link below!</p> 
+        <div class="btn btn-info mt-5 mb-3"><a href="{{link}}" target="_blank" class="text-decoration-none"><strong>Reset Password</strong> </a></div>
+       <p> If u did not request for a password reset, you can ignore this email.</p>
+       <p>If the button doesn't redirect you to another page, click <a href="{{link}}" target="_blank">here</a></p>
+        </div>
+    </div>
+</body>
+</html>
