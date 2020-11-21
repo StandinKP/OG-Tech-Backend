@@ -8,8 +8,7 @@
     <title>Digital Business Cards</title>
 
     {% block css %}
-    
-    
+
     <!--     Fonts and icons     -->
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"
@@ -21,59 +20,46 @@
     <!-- CSS Files -->
     <link href="../static/assets/css/black-dashboard.css" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/main.css" />
     {% endblock %}
   </head>
   <body class="">
     <div class="wrapper">
-
-        {% include 'includes/_sidebar.html' %}
-        
-
-        {% block body %}
-        {% endblock %}        
+      {% include 'includes/_sidebar.html' %} {% block body %} {% endblock %}
     </div>
-      {% block script %}
+    {% block script %}
     <script src="../static/assets/js/core/jquery.min.js"></script>
     <script src="../static/assets/js/core/popper.min.js"></script>
     <script src="../static/assets/js/core/bootstrap.min.js"></script>
     <script src="../static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  
+
     <!-- Chart JS -->
     <script src="../static/assets/js/plugins/chartjs.min.js"></script>
- 
+
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../static/assets/js/black-dashboard.js"></script>
     <script>
+      $(document).ready(function () {
+        if (!sessionStorage.getItem('currentActive')) {
+          $(".nav li[data-tab='Dashboard']").addClass('active')
+        } else {
+          $current = $(".nav li[data-tab='" + sessionStorage.getItem('currentActive') + "']")
 
+          $current.addClass('active')
+          $('.nav li').not($current).removeClass('active')
+        }
 
-        
-      $(document).ready(function() {
-        
-    
-        if (!sessionStorage.getItem("currentActive")) {
-          $(".nav li[data-tab='Dashboard']").addClass('active') ; 
-        }else{
-        $current =  $(".nav li[data-tab='" + sessionStorage.getItem('currentActive') +"']") ; 
-      
-        $current.addClass("active");
-        $('.nav li').not($current).removeClass('active') ;
-        } 
-
-        $("#logout").click(function(){
-          sessionStorage.clear(); 
+        $('#logout').click(function () {
+          sessionStorage.clear()
         })
-      });
-    
+      })
 
-        $('.nav li').click(function () {
-        $('.nav li').not(this).removeClass('active') ;
-        $(this).addClass('active') ; 
-        sessionStorage.setItem('currentActive',$(this).attr("data-tab")) ;  
-        }) ; 
-
+      $('.nav li').click(function () {
+        $('.nav li').not(this).removeClass('active')
+        $(this).addClass('active')
+        sessionStorage.setItem('currentActive', $(this).attr('data-tab'))
+      })
     </script>
     {% endblock %}
   </body>
-  
-  </html>
+</html>

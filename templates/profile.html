@@ -1,316 +1,300 @@
+{% extends 'layout.html' %} {% block body %}
 
+<div class="main-panel" data="blue">
+  <!-- Navbar -->
+  {% include "includes/_navbar.html" %}
 
-   {% extends 'layout.html' %}
-     
-   {% block body %}
-   
-    <div class="main-panel" data = "blue">
-      <!-- Navbar -->
-      {% include "includes/_navbar.html" %}
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <i class="tim-icons icon-simple-remove"></i>
+  <div class="content" data="blue">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Edit Profile</h5>
+          </div>
+          <div class="card-body">
+            <form autocomplete="off">
+              <div class="row">
+                <div class="col-md-5 pr-md-1">
+                  <div class="form-group">
+                    <label>Company (optional)</label>
+                    <input type="text" class="form-control" placeholder="Company" value="" />
+                  </div>
+                </div>
+                <div class="col-md-3 px-md-1">
+                  <div class="form-group">
+                    <label>Contact no .</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      placeholder="Username"
+                      value="{{session['contact']}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4 pl-md-1">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" value="{{session['email']}}" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First Name"
+                      value="{{session['fname']}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                      value="{{session['lname']}}"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label>Profession</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Data Analyst, Senior Lead Developer , etc ."
+                      value="{{session['job']}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label>Linkedin URL</label>
+                    <input
+                      type="url"
+                      class="form-control"
+                      placeholder=""
+                      value="{{session['linkedin']}}"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-md-1">
+                  <div class="form-group">
+                    <label>Facebook URL</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      value="{{session['facebook']}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 pl-md-1">
+                  <div class="form-group">
+                    <label>Twitter handle</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      value="{{session['twitter']}}"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" placeholder="Work Address" value="" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 pr-md-1">
+                  <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" placeholder="City" value="" />
+                  </div>
+                </div>
+                <div class="col-md-4 px-md-1">
+                  <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" class="form-control" placeholder="Country" value="" />
+                  </div>
+                </div>
+                <div class="col-md-4 pl-md-1">
+                  <div class="form-group">
+                    <label>Postal Code</label>
+                    <input type="text" class="form-control" placeholder="ZIP Code" />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-fill btn-info">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="card-body">
+            <div class="card-text">
+              <div class="author">
+                <div class="block block-one"></div>
+                <div class="block block-two"></div>
+                <div class="block block-three"></div>
+                <div class="block block-four"></div>
+                <a href="javascript:void(0)">
+                  <img class="avatar" src="../static/assets/img/user.png" alt="..." />
+                  <h5 class="title">{{session['fname'] + " " + session['lname']}}</h5>
+                </a>
+                <p class="description"></p>
+              </div>
+            </div>
+            <div class="card-description"></div>
+          </div>
+          <div class="card-footer">
+            <div class="button-container">
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+                <img src="../static/assets/img/facebook.png" />
+              </button>
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+                <img src="../static/assets/img/twitter.png" />
+              </button>
+              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+                <img src="../static/assets/img/linkedin.png" />
               </button>
             </div>
           </div>
         </div>
       </div>
-      <!-- End Navbar -->
-      <div class="content" data = "blue">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="title">Edit Profile</h5>
-              </div>
-              <div class="card-body">
-                <form autocomplete="off">
-                  <div class="row">
-                    <div class="col-md-5 pr-md-1">
-                      <div class="form-group">
-                        <label>Company (optional)</label>
-                        <input type="text" class="form-control" placeholder="Company" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-md-1">
-                      <div class="form-group">
-                        <label>Contact no .</label>
-                        <input type="tel" class="form-control" placeholder="Username" value="{{session['contact']}}">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" value="{{session['email']}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" value="{{session['fname']}}">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="{{session['lname']}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Profession</label>
-                        <input type="text" class="form-control" placeholder="Data Analyst, Senior Lead Developer , etc ." value="{{session['job']}}">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Linkedin URL</label>
-                        <input type="url" class="form-control" placeholder="" value="{{session['linkedin']}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>Facebook URL</label>
-                        <input type="text" class="form-control" placeholder="" value="{{session['facebook']}}">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Twitter handle</label>
-                        <input type="text" class="form-control" placeholder="" value="{{session['twitter']}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Work Address" value="">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-md-1">
-                      <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="text" class="form-control" placeholder="ZIP Code">
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-info">Save</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="card-body">
-                <p class="card-text">
-                  <div class="author">
-                    <div class="block block-one"></div>
-                    <div class="block block-two"></div>
-                    <div class="block block-three"></div>
-                    <div class="block block-four"></div>
-                    <a href="javascript:void(0)">
-                      <img class="avatar" src="../static/assets/img/user.png" alt="...">
-                      <h5 class="title">{{session['fname'] + " " + session['lname']}}</h5>
-                    </a>
-                    <p class="description">
-                      
-                    </p>
-                  </div>
-                </p>
-                <div class="card-description">
-                  
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="button-container">
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
-                    <img src="../static/assets/img/facebook.png">
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
-                    <img src="../static/assets/img/twitter.png">
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-                    <img src="../static/assets/img/linkedin.png">
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Contact Us 
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Help Center
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul>
-          <div class="copyright">
-            ©
-           2020 by
-            <a href="https://www.ogtech.in" target="_blank">OG Tech</a>
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
-  <!--   Core JS Files   -->
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
-        $navbar = $('.navbar');
-        $main_panel = $('.main-panel');
+  {% include "includes/_footer.html" %}
+</div>
 
-        $full_page = $('.full-page');
+<!--   Core JS Files   -->
+<script>
+  $(document).ready(function () {
+    $().ready(function () {
+      $sidebar = $('.sidebar')
+      $navbar = $('.navbar')
+      $main_panel = $('.main-panel')
 
-        $sidebar_responsive = $('body > .navbar-collapse');
-        sidebar_mini_active = true;
-        white_color = false;
+      $full_page = $('.full-page')
 
-        window_width = $(window).width();
+      $sidebar_responsive = $('body > .navbar-collapse')
+      sidebar_mini_active = true
+      white_color = false
 
-        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+      window_width = $(window).width()
 
+      fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html()
 
-
-        $('.fixed-plugin a').click(function(event) {
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
+      $('.fixed-plugin a').click(function (event) {
+        if ($(this).hasClass('switch-trigger')) {
+          if (event.stopPropagation) {
+            event.stopPropagation()
+          } else if (window.event) {
+            window.event.cancelBubble = true
           }
-        });
+        }
+      })
 
-        $('.fixed-plugin .background-color span').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
+      $('.fixed-plugin .background-color span').click(function () {
+        $(this).siblings().removeClass('active')
+        $(this).addClass('active')
 
-          var new_color = $(this).data('color');
+        var new_color = $(this).data('color')
 
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data', new_color);
-          }
+        if ($sidebar.length != 0) {
+          $sidebar.attr('data', new_color)
+        }
 
-          if ($main_panel.length != 0) {
-            $main_panel.attr('data', new_color);
-          }
+        if ($main_panel.length != 0) {
+          $main_panel.attr('data', new_color)
+        }
 
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
+        if ($full_page.length != 0) {
+          $full_page.attr('filter-color', new_color)
+        }
 
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data', new_color);
-          }
-        });
+        if ($sidebar_responsive.length != 0) {
+          $sidebar_responsive.attr('data', new_color)
+        }
+      })
 
-        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
-          var $btn = $(this);
+      $('.switch-sidebar-mini input').on('switchChange.bootstrapSwitch', function () {
+        var $btn = $(this)
 
-          if (sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            sidebar_mini_active = false;
-            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-          } else {
-            $('body').addClass('sidebar-mini');
-            sidebar_mini_active = true;
-            blackDashboard.showSidebarMessage('Sidebar mini activated...');
-          }
+        if (sidebar_mini_active == true) {
+          $('body').removeClass('sidebar-mini')
+          sidebar_mini_active = false
+          blackDashboard.showSidebarMessage('Sidebar mini deactivated...')
+        } else {
+          $('body').addClass('sidebar-mini')
+          sidebar_mini_active = true
+          blackDashboard.showSidebarMessage('Sidebar mini activated...')
+        }
 
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
+        // we simulate the window Resize so the charts will get updated in realtime.
+        var simulateWindowResize = setInterval(function () {
+          window.dispatchEvent(new Event('resize'))
+        }, 180)
 
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-        });
+        // we stop the simulation of Window Resize after the animations are completed
+        setTimeout(function () {
+          clearInterval(simulateWindowResize)
+        }, 1000)
+      })
 
-        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
-          var $btn = $(this);
+      $('.switch-change-color input').on('switchChange.bootstrapSwitch', function () {
+        var $btn = $(this)
 
-          if (white_color == true) {
+        if (white_color == true) {
+          $('body').addClass('change-background')
+          setTimeout(function () {
+            $('body').removeClass('change-background')
+            $('body').removeClass('white-content')
+          }, 900)
+          white_color = false
+        } else {
+          $('body').addClass('change-background')
+          setTimeout(function () {
+            $('body').removeClass('change-background')
+            $('body').addClass('white-content')
+          }, 900)
 
-            $('body').addClass('change-background');
-            setTimeout(function() {
-              $('body').removeClass('change-background');
-              $('body').removeClass('white-content');
-            }, 900);
-            white_color = false;
-          } else {
+          white_color = true
+        }
+      })
 
-            $('body').addClass('change-background');
-            setTimeout(function() {
-              $('body').removeClass('change-background');
-              $('body').addClass('white-content');
-            }, 900);
+      $('.light-badge').click(function () {
+        $('body').addClass('white-content')
+      })
 
-            white_color = true;
-          }
-
-
-        });
-
-        $('.light-badge').click(function() {
-          $('body').addClass('white-content');
-        });
-
-        $('.dark-badge').click(function() {
-          $('body').removeClass('white-content');
-        });
-      });
-    });
-  </script>
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS &&
-      TrackJS.install({
-        token: "ee6fab19c5a04ac1a32a645abde4613a",
-        application: "black-dashboard-free"
-      });
-  </script>
+      $('.dark-badge').click(function () {
+        $('body').removeClass('white-content')
+      })
+    })
+  })
+</script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS &&
+    TrackJS.install({
+      token: 'ee6fab19c5a04ac1a32a645abde4613a',
+      application: 'black-dashboard-free',
+    })
+</script>
 {% endblock %}

@@ -150,8 +150,7 @@ def signup():
             mongo.db.users.insert_one(user)
             msg = Message("Confirm email", recipients=[user["email"]])
             link = url_for("verify", token=user["token"], _external=True)
-            msg.html = (render_template("verify_account.html" , link = link)
-            )
+            msg.html = render_template("verify_account.html", link=link)
             mail.send(msg)
             # message = Mail(
             #     to_emails=user["email"],
@@ -218,7 +217,7 @@ def login():
                 session["email"] = user["email"]
                 session["fname"] = user["fname"]
                 session["lname"] = user["lname"]
-                #session['name'] = user['name']
+                # session['name'] = user['name']
                 session["contact"] = user["contact"]
                 if request.form.get("remember") == "on":
                     session.permanent = True
@@ -246,6 +245,11 @@ def dashboard():
     return render_template("dashboard.html")
 
 
+@app.route("/templates")
+def templates():
+    return render_template("templates.html")
+
+
 @app.route("/forgot_password", methods=["POST", "GET"])
 def forgot():
     if request.method == "POST":
@@ -268,9 +272,8 @@ def forgot():
                 token = random.randint(11111, 99999)
                 link = url_for("reset", token=token, _external=True)
                 msg = Message("Change Password", recipients=[user["email"]])
-                msg.html = (render_template('forgot_email.html' , token = token , link = link)
-                )
-                
+                msg.html = render_template("forgot_email.html", token=token, link=link)
+
                 mail.send(msg)
                 # sg = SendGridAPIClient(os.getenv("SENDGRID_KEY"))
 
@@ -331,6 +334,7 @@ def reset(token):
 
     return render_template("reset.html")
 
+
 @app.route("/make_payment/", methods=["POST", "GET"])
 def make_payment():
     if request.method == "POST":
@@ -384,9 +388,11 @@ def create_card():
 def card():
     return render_template("card2.html")
 
-@app.route("/icons" , methods = ["POST" , "GET"])
+
+@app.route("/icons", methods=["POST", "GET"])
 def icon():
-    return(render_template("icons.html"))
+    return render_template("icons.html")
+
 
 @app.route("/convert/<card>", methods=["POST", "GET"])
 def convert(card):
@@ -405,9 +411,11 @@ def convert(card):
 
     return response
 
+
 @app.route("/profile")
 def profile():
-    return(render_template("profile.html"))
+    return render_template("profile.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
