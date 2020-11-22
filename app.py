@@ -465,7 +465,13 @@ def update():
         user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
         return redirect(url_for('profile'))
 
+@app.route('/preview/<cardName>' , methods = ["POST" , "GET"])
+def preview(cardName):
+    return(str(cardName))
 
-
+@app.route('/access-card' , methods = ["POST"])
+def access_card():
+   card_name = request.form.get('name')
+   return(url_for("preview" , cardName = card_name))
 if __name__ == "__main__":
     app.run(debug=True)

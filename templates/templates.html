@@ -26,7 +26,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal">Select</button>
+                  <button class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal">Select</button>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 2" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button name="Sigma 2" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 4" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button name="Sigma 4" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 5" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button name="Sigma 5" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 6" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button name="Sigma 6" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 7" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button name="Sigma 7" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -176,7 +176,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button name="Sigma 8" class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal">Select</button>
+                  <button name="Sigma 8" class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal">Select</button>
                 </div>
               </div>
             </div>
@@ -201,7 +201,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -226,7 +226,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-block btn-fill btn-info select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
+                  <button class="btn btn-block btn-fill select-button" data-toggle="modal" data-target="#exampleModal"">Select</button>
                 </div>
               </div>
             </div>
@@ -246,13 +246,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <h4>You have selected the <span class="template-name">....</span> template .
+        <h4>You have selected the <span class="template-name"></span> template .
         <br>
          Do you wish to proceed ? </h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info">Proceed</button>
+    
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-info">Proceed</button>
       </div>
     </div>
   </div>
@@ -262,6 +263,26 @@
   $(".select-button").click(function(){
     $(".template-name").text($(this).attr('name')) ;
   })
+  $(".btn-info").click(function(){
+    
+    cardName = $('.template-name').text() //value I want to send 
+    $.ajax({ 
+    url: '{{url_for("access_card")}}', 
+    type: 'POST', 
+    data: { 'name' : cardName},
+    success: function(response){ 
+        window.location.href = response ; 
+    } 
+})
+
+
+   })
+   
+
+
+
+   
+ 
 </script>
 
 
