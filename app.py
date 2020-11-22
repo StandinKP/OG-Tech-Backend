@@ -11,7 +11,7 @@ from flask import (
     Markup,
 )
 from flask_bcrypt import Bcrypt
-
+from bson.objectid import ObjectId
 from functools import wraps
 import json
 import razorpay
@@ -96,7 +96,14 @@ def signup():
             "cpassword": request.form.get("cpassword"),
             "token": random.randint(11111, 99999),
             "verified": False,
-        }
+            "info" :{
+            "organization":"",
+            "profession" : "" ,
+            "linkedin" :"",
+            "facebook" : '' , 
+            "twitter" : "",
+            "address" : "" , 
+        }}
 
         if user["email"] == "":
             flash("Email cannot be empty.", "danger")
@@ -214,11 +221,8 @@ def login():
                 user["password"], request.form.get("lpassword")
             ):
                 session["logged_in"] = True
-                session["email"] = user["email"]
-                session["fname"] = user["fname"]
-                session["lname"] = user["lname"]
-                # session['name'] = user['name']
-                session["contact"] = user["contact"]
+                session['id'] = str(user['_id'])
+                user  = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
                 if request.form.get("remember") == "on":
                     session.permanent = True
                 return redirect(url_for("dashboard"))
@@ -239,15 +243,17 @@ def logout():
     return redirect(url_for("home"))
 
 
-@app.route("/dashboard/")
+@app.route("/dashboard")
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+    return render_template("dashboard.html" , user = user)
 
 
 @app.route("/templates")
 def templates():
-    return render_template("templates.html")
+    user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+    return render_template("templates.html" , user = user)
 
 
 @app.route("/forgot_password", methods=["POST", "GET"])
@@ -414,7 +420,51 @@ def convert(card):
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+    return render_template("profile.html" , user = user)
+
+
+@app.route('/update' , methods = ["POST"])
+def update():
+   if request.method == "POST":
+        changes = False
+        user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+        print(user)
+        if request.form.get('fname')!= "" and request.form.get('fname') != user['fname']:
+           mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": {"fname": request.form.get('fname')}}) 
+           changes = True
+        if request.form.get('lname')!= "" and request.form.get('lname') != user['lname']:
+           mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": {"lname": request.form.get('lname')}}) 
+           changes = True 
+        if request.form.get('contact')!= "" and request.form.get('contact') != user['contact'] and request.form.get('contact').isnumeric() and len(request.form.get('contact')) == 10:
+           mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": {"contact": request.form.get('contact')}}) 
+           changes = True 
+        if request.form.get('contact')!= "" and request.form.get('contact') != user['contact'] and request.form.get('contact').isnumeric() and len(request.form.get('contact')) == 10:
+           mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": {"contact": request.form.get('contact')}}) 
+           changes = True
+        if request.form.get('organization')!='' and request.form.get('organization')!= user['info']['organization']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": { "info.organization": request.form.get('organization')}})  
+            changes = True
+        if request.form.get('profession')!='' and request.form.get('profession')!= user['info']['profession']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, { "$set" : { "info.profession": request.form.get('profession') }})  
+            changes = True
+        if request.form.get('linkedin')!='' and request.form.get('linkedin')!= user['info']['linkedin']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, { "$set" : { "info.linkedin": request.form.get('linkedin') }})  
+            changes = True
+        if request.form.get('facebook')!='' and request.form.get('facebook')!= user['info']['facebook']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, { "$set" : { "info.facebook": request.form.get('facebook') }})  
+            changes = True      
+        if request.form.get('twitter')!='' and request.form.get('twitter')!= user['info']['twitter']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": { "info.twitter": request.form.get('twitter')}})  
+            changes = True
+        if request.form.get('address')!='' and request.form.get('address')!= user['info']['address']:
+            mongo.db.users.update_one({"_id": ObjectId(session["id"])}, {"$set": { "info.address": request.form.get('address')}})  
+            changes = True
+        if changes:
+            flash("Your profile has been successfully updated" , "success")
+        user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+        return redirect(url_for('profile'))
+
 
 
 if __name__ == "__main__":

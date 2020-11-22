@@ -9,32 +9,34 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
+            {% include 'includes/_messages.html' %}
             <h5 class="title">Edit Profile</h5>
           </div>
           <div class="card-body">
-            <form autocomplete="off">
+            <form action = "{{url_for('update')}}" method = "POST" autocomplete="off">
               <div class="row">
                 <div class="col-md-5 pr-md-1">
                   <div class="form-group">
-                    <label>Company (optional)</label>
-                    <input type="text" class="form-control" placeholder="Company" value="" />
+                    <label>Organization (optional)</label>
+                    <input type="text" class="form-control" name="organization" placeholder="Organization" value="{{user['info']['organization']}}" />
                   </div>
                 </div>
                 <div class="col-md-3 px-md-1">
                   <div class="form-group">
                     <label>Contact no .</label>
                     <input
+                    name = "contact"
                       type="tel"
                       class="form-control"
                       placeholder="Username"
-                      value="{{session['contact']}}"
+                      value="{{user['contact']}}"
                     />
                   </div>
                 </div>
                 <div class="col-md-4 pl-md-1">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" value="{{session['email']}}" />
+                    <input name = "email" type="email" class="form-control" value="{{user['email']}}" />
                   </div>
                 </div>
               </div>
@@ -43,10 +45,11 @@
                   <div class="form-group">
                     <label>First Name</label>
                     <input
+                      name = "fname"
                       type="text"
                       class="form-control"
                       placeholder="First Name"
-                      value="{{session['fname']}}"
+                      value="{{user['fname']}}"
                     />
                   </div>
                 </div>
@@ -54,10 +57,11 @@
                   <div class="form-group">
                     <label>Last Name</label>
                     <input
+                      name = "lname"
                       type="text"
                       class="form-control"
                       placeholder="Last Name"
-                      value="{{session['lname']}}"
+                      value="{{user['lname']}}"
                     />
                   </div>
                 </div>
@@ -67,10 +71,11 @@
                   <div class="form-group">
                     <label>Profession</label>
                     <input
+                      name = "profession"
                       type="text"
                       class="form-control"
                       placeholder="Data Analyst, Senior Lead Developer , etc ."
-                      value="{{session['job']}}"
+                      value="{{user['info']['profession']}}"
                     />
                   </div>
                 </div>
@@ -78,10 +83,11 @@
                   <div class="form-group">
                     <label>Linkedin URL</label>
                     <input
+                      name = 'linkedin'
                       type="url"
                       class="form-control"
                       placeholder=""
-                      value="{{session['linkedin']}}"
+                      value="{{user['info']['linkedin']}}"
                     />
                   </div>
                 </div>
@@ -91,10 +97,11 @@
                   <div class="form-group">
                     <label>Facebook URL</label>
                     <input
+                      name = 'facebook'
                       type="text"
                       class="form-control"
                       placeholder=""
-                      value="{{session['facebook']}}"
+                      value="{{user['info']['facebook']}}"
                     />
                   </div>
                 </div>
@@ -102,10 +109,11 @@
                   <div class="form-group">
                     <label>Twitter handle</label>
                     <input
+                      name = 'twitter'
                       type="text"
                       class="form-control"
                       placeholder=""
-                      value="{{session['twitter']}}"
+                      value="{{user['info']['twitter']}}"
                     />
                   </div>
                 </div>
@@ -114,7 +122,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Address</label>
-                    <input type="text" class="form-control" placeholder="Work Address" value="" />
+                    <input name = 'address' type="text" class="form-control" placeholder="Work Address" value="{{user['info']['address']}}" />
                   </div>
                 </div>
               </div>
@@ -138,11 +146,12 @@
                   </div>
                 </div>
               </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-fill btn-info">Save</button>
+              </div>
             </form>
           </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-fill btn-info">Save</button>
-          </div>
+          
         </div>
       </div>
       <div class="col-md-4">
@@ -156,7 +165,7 @@
                 <div class="block block-four"></div>
                 <a href="javascript:void(0)">
                   <img class="avatar" src="../static/assets/img/user.png" alt="..." />
-                  <h5 class="title">{{session['fname'] + " " + session['lname']}}</h5>
+                  <h5 class="title">{{user['fname'] + " " + user['lname']}}</h5>
                 </a>
                 <p class="description"></p>
               </div>
@@ -165,15 +174,15 @@
           </div>
           <div class="card-footer">
             <div class="button-container">
-              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+              <a href="{{user['info']['facebook']}}" target = "_blank" class="btn btn-icon btn-round btn-facebook">
                 <img src="../static/assets/img/facebook.png" />
-              </button>
-              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+              </a>
+              <a href="{{user['info']['twitter']}}" target = "_blank" class="btn btn-icon btn-round btn-twitter">
                 <img src="../static/assets/img/twitter.png" />
-              </button>
-              <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+              </a>
+              <a href="{{user['info']['linkedin']}}" target = "_blank" class="btn btn-icon btn-round btn-google">
                 <img src="../static/assets/img/linkedin.png" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
