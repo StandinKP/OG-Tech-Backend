@@ -151,7 +151,9 @@
               </div>
               <div class="card-footer">
                 <button type="button" class="preview btn btn-fill btn-info">Preview</button>
+                <input type="submit" value = "Buy now !" name = "{{id}}"class="btn btn-fill btn-success">
               </div>
+      
             </form>
           </div>
           
@@ -161,11 +163,8 @@
         <div class="card card-user">
           <div class="card-body">
             <div class="card-text">
-              <div class="author">
-                <div class="block block-one"></div>
-                <div class="block block-two"></div>
-                <div class="block block-three"></div>
-                <div class="block block-four"></div>
+              <div class="author" style="display: flex ; justify-content: center;">
+                
                 <div id = "{{id}}">
                 {% include card %}
               </div>
@@ -189,7 +188,7 @@
 
   $(".preview").click(function(){
       address = $("input[name = 'address'").val() ; 
-      address = address.substring(0,18) + ".." ; 
+      address = address.substring(0,18)  ; 
       $(".name").text($("input[name ='fname']").val() + " " +  $("input[name ='lname']").val()) ; 
       $(".designation").text($("input[name ='profession']").val()) ;
       $(".email a").text($("input[name = 'email']").val()) ; 
