@@ -1,4 +1,7 @@
-{% extends 'layout.html' %} {% block body %}
+{% extends 'layout.html' %} 
+
+
+{% block body %}
 
 <div class="main-panel" data="blue">
   <!-- Navbar -->
@@ -10,10 +13,10 @@
         <div class="card">
           <div class="card-header">
             {% include 'includes/_messages.html' %}
-            <h5 class="title">Edit Profile</h5>
+            <h5 class="title">Card Details</h5>
           </div>
           <div class="card-body">
-            <form action = "{{url_for('update')}}" method = "POST" autocomplete="off">
+            <form action = "#" method = "POST" autocomplete="off">
               <div class="row">
                 <div class="col-md-5 pr-md-1">
                   <div class="form-group">
@@ -25,7 +28,7 @@
                   <div class="form-group">
                     <label>Contact no .</label>
                     <input
-                    name = "contact"
+                      name = "contact"
                       type="tel"
                       class="form-control"
                       placeholder="Username"
@@ -147,7 +150,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-info">Save</button>
+                <button type="button" class="preview btn btn-fill btn-info">Preview</button>
               </div>
             </form>
           </div>
@@ -163,27 +166,14 @@
                 <div class="block block-two"></div>
                 <div class="block block-three"></div>
                 <div class="block block-four"></div>
-                <a href="javascript:void(0)">
-                  <img class="avatar" src="../static/assets/img/user.png" alt="..." />
-                  <h5 class="title">{{user['fname'] + " " + user['lname']}}</h5>
-                </a>
-                <p class="description"></p>
+                <div id = "{{id}}">
+                {% include card %}
+              </div>
               </div>
             </div>
-            <div class="card-description"></div>
+          
           </div>
           <div class="card-footer">
-            <div class="button-container">
-              <a href="{{user['info']['facebook']}}" target = "_blank" class="btn btn-icon btn-round btn-facebook">
-                <img src="../static/assets/img/facebook.png" />
-              </a>
-              <a href="{{user['info']['twitter']}}" target = "_blank" class="btn btn-icon btn-round btn-twitter">
-                <img src="../static/assets/img/twitter.png" />
-              </a>
-              <a href="{{user['info']['linkedin']}}" target = "_blank" class="btn btn-icon btn-round btn-google">
-                <img src="../static/assets/img/linkedin.png" />
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -193,7 +183,24 @@
 </div>
 
 <!--   Core JS Files   -->
+<script src="../static/assets/js/core/jquery.min.js"></script>
+
 <script>
+
+  $(".preview").click(function(){
+      address = $("input[name = 'address'").val() ; 
+      address = address.substring(0,18) + ".." ; 
+      $(".name").text($("input[name ='fname']").val() + " " +  $("input[name ='lname']").val()) ; 
+      $(".designation").text($("input[name ='profession']").val()) ;
+      $(".email a").text($("input[name = 'email']").val()) ; 
+      $(".phone a").text($("input[name = 'contact'").val()) ; 
+      $(".address a").text(address) ; 
+  })
+</script>
+
+
+<script>
+  
   $(document).ready(function () {
     $().ready(function () {
       $sidebar = $('.sidebar')

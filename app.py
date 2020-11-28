@@ -54,7 +54,7 @@ app.config["WKHTMLTOPDF_BIN_PATH"] = r"C:\Program Files\wkhtmltopdf\bin"
 app.config["PDF_DIR_PATH"] = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "static", "pdf"
 )
-mongo = PyMongo(app)
+mongo = PyMongo(app) 
 mail = Mail(app)
 bcrypt = Bcrypt(app)
 razorpay_client = razorpay.Client(
@@ -467,7 +467,9 @@ def update():
 
 @app.route('/preview/<cardName>' , methods = ["POST" , "GET"])
 def preview(cardName):
-    return(str(cardName))
+    user = mongo.db.users.find_one({"_id": ObjectId(session['id'])})
+    print(cardName)
+    return(render_template("preview.html" , user = user , card = "card1.html" , id = cardName))
 
 @app.route('/access-card' , methods = ["POST"])
 def access_card():
