@@ -1,3 +1,3 @@
 # OG-Tech-Backend
 
-Backend for vcards.ogtech.in
+Backend for developed for the Digital bussiness card service with customizable cards for lifetime with minimal charges.
